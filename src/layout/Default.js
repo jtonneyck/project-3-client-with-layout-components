@@ -7,7 +7,6 @@ function Default(props) {
             <Navbar/>
                 {props.children}
             <Footer/>
-
         </div>
     )
 }

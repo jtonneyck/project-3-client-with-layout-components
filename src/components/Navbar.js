@@ -18,6 +18,8 @@ function Navbar() {
                     <Link to="/about">About</Link>
                 </div>
             }
+            <Link to="/students">Students</Link>
+            <Link to="/add-student">Add Student</Link>
         </nav>
     )
 }
