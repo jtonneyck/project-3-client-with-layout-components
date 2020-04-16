@@ -6,7 +6,6 @@ const history = createBrowserHistory();
 const axios = Axios.create({
     withCredentials: true, // you need it for CORS
     baseURL: process.env.REACT_APP_API,
-    withCredentials: true
 });
 // https://github.com/zeit/next.js/issues/153
 
