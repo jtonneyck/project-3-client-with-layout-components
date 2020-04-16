@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import Student from "../components/Student";
-import DefaultLayout from "../layout/Default";
+import DefaultLayout from "../layouts/Default";
 class Students extends Component {
     constructor(props) {
         super(props)

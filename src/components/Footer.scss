@@ -1,4 +1,7 @@
 .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
     display: flex;
     justify-content: center;
     background-color: black;
@@ -6,3 +9,4 @@
         color: white
     }
 }
+    

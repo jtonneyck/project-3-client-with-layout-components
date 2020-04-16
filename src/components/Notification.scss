@@ -1,0 +1,24 @@
+.notification {
+    position: fixed;
+    right: 0;
+    width: 200px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    border: 5px solid white;
+    display: flex;
+    opacity: 90%;
+    align-items: center;
+    animation: slideFromRight 0.5s;
+    animation-timing-function: ease-out;
+
+}
+
+@keyframes slideFromRight {
+    from {
+        right: -200px;
+    }
+    to {
+        right: 0px;
+    }
+}

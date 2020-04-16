@@ -1,42 +1,54 @@
-import React, { Component } from 'react'
-import logo from './logo.svg';
-import './App.css';
-import axios from "axios";
-import {Route} from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import AddStudent from './pages/AddStudent';
-import Students from './pages/Students';
-
-class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-         person: {}
+import React from 'react'
+import {Route, Switch} from "react-router-dom";
+import {Home, AddStudent, Students, About, Login, Signup, Profile}  from "./pages/index";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Notifications from "./context/Notifications";
+import Notification from "./components/Notification";
+class App extends React.Component {
+    constructor(){
+      super()
+      this.addNotification = this.addNotification.bind(this);
+      this.removeOldestNotification = this.removeOldestNotification.bind(this);
     }
-  }
-  componentDidMount(){
-    axios.get("http://localhost:3000/name")
-      .then((response)=> {
-        this.setState({person: response.data})
-      })
-      .catch(err=> {
-        debugger
-      })
-  }
-  render() {
-    return (
-      <div>
 
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/students" component={Students}/>
-        <Route path="/add-student" component={AddStudent}/>
+    state = {
+      notifications: []
+    }
 
-      </div>
-    )
-  }
+    addNotification(notification){
+      this.setState({
+        notifications: [...this.state.notifications, notification]
+      },()=> {
+        setTimeout(this.removeOldestNotification, 2000)
+      })
+    }
+
+    removeOldestNotification(){
+      let notificationsCopy = [...this.state.notifications];
+      notificationsCopy.shift();
+      this.setState({
+        notifications: notificationsCopy
+      })
+    }
+
+    render(){
+
+      return (
+        <Notifications.Provider value={this.addNotification}>
+          {this.state.notifications.map((notification)=> <Notification message={notification.message}/>)}
+          <Switch>
+            <Route exact path="/(|home)" component={Home}/>
+            <Route path="/about" component={About}/>
+            <ProtectedRoute path="/students" component={Students}/>
+            <Route path="/signup" component={Signup}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/profile" component={Profile}/>
+            <ProtectedRoute path="/add-student" component={AddStudent}/>
+          </Switch>
+        </Notifications.Provider >
+      )
+    }
+
 }
 
 export default App
