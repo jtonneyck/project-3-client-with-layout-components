@@ -11,7 +11,7 @@ class Profile extends Component {
         }
     }
     componentDidMount(){
-        axios.get("http://localhost:3000/users/profile")
+        axios.get(`${process.env.REACT_APP_API}/users/profile`)
     }
     render() {
         return (

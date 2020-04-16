@@ -33,4 +33,6 @@ Create a file that you call `.env.production` in the root of your client (not in
 REACT_APP_API_BASE=yourDeployedBaseUrlFromHeroku
 ```
 
-Now you run `npm run build` in the terminal. It wil read the environment variables from `.env.production` and create an optimized version of your app. It saves it in the `build` directory. You have to drag and drop the whole content of the directory to Netlify, just as in module 1. Now you go to the Heroku dashboard and set the production .env variables there as well.
+Now you run `npm run build` in the terminal. It wil read the environment variables from `.env.production` and create an optimized version of your app. It saves it in the `build` directory. You have to drag and drop the whole directory to Netlify, just as in module 1. Now you go to the Heroku dashboard and set the production .env variables there as well.
+
+We are drag and dropping for sake of simplicity, but you can also link Netlify to your github repo.

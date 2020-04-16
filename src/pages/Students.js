@@ -13,7 +13,7 @@ class Students extends Component {
 
     componentDidMount(){
         axios({
-                url: "http://localhost:3000/students",
+                url: `${process.env.REACT_APP_API}/students`,
                 method: "GET"
             })
             .then((response)=> {
