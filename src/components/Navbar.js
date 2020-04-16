@@ -24,7 +24,7 @@ class Navbar extends Component {
                 <h1>Navbaaaaaar</h1>
                 {user? 
                     <div>
-                        <a onClick={this.logout}>Logout</a>
+                        <a onClick={this.handleLogout}>Logout</a>
                         <Link to="/students">Students</Link>
                         <Link to="/add-student">Add Student</Link>
                     </div>:

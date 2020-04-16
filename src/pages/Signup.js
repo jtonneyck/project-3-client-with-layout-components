@@ -33,7 +33,7 @@ export default class Signup extends Component {
             this.props.history.push("/login")
         })
         .catch((error)=> { 
-            
+            console.log(error);
         })
     }
 
