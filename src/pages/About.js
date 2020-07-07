@@ -1,7 +1,5 @@
 import React from 'react';
 import SideBarLayout from "../layout/SidebarNavLayout";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 function About() {
     return (
         <SideBarLayout>
