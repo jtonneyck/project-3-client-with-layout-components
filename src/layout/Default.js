@@ -3,11 +3,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 function Default(props) {
     return (
-        <div>
+        <div className="default">
             <Navbar/>
                 {props.children}
             <Footer/>
-
         </div>
     )
 }
